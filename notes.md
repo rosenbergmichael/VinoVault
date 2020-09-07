@@ -32,7 +32,5 @@ Categories
   has_many :wines
   has_many :users, through: :wines
 
+  -name (type(red, white, etc.), grape, region, etc.)
 
-  -type (red, white, rose, sparkling, dessert)
-  -grape_variety
-  -region
