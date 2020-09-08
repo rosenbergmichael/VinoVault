@@ -6,3 +6,4 @@ class User < ApplicationRecord
  # has_many :categories, through: :wines
 
 end
+
