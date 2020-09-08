@@ -13,12 +13,15 @@
 
     <div>
       <% if logged_in? %>
-      <%=link_to "Sign Out", logout_path, method:"delete" %>
+      <%= link_to "Add a Wine", new_wine_path %> |
+      <%= link_to "All Wines", wines_path %> |
+      <%= link_to "Sign Out", logout_path, method:"delete" %>
       <% else %>
       <%=link_to "Sign Up", signup_path %> |
       <%=link_to "Sign In", login_path %> 
       <% end %>
     </div>
+
     <%= yield %>
   </body>
 </html>
