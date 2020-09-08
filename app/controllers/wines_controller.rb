@@ -15,6 +15,15 @@ class WinesController < ApplicationController
     end
   end
 
+  def index
+    @wines = Wine.all
+  end
+
+  def show
+    @wine = Wine.find_by_id(params[:id])
+    redirect_to wines_path if !@wine 
+  end
+  
   private
 
   def wine_params
