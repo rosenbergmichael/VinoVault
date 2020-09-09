@@ -7,13 +7,17 @@
 <div><%= @wine.content%></div>
 <br>
 <br>
-<h3>Reviews</h3>
+<h2>Reviews</h2>
 <br>
 <% @wine.reviews.each do |r| %>
-  <h4><strong>Review by <%= r.user.username %></strong></h4>
+  <h3><strong>Review by <%= r.user.username %></strong>(<%= r.updated_at.strftime("%m/%d/%Y") %>)</h3> 
   <p><strong>Rating:</strong> <%= r.rating %></p>
   <p><%= r.notes %></p>
-  <% end %>
+
+<% end %>
+
+
+
 <br>
 <br>
 <%= link_to "Add a Review", new_wine_review_path(@wine) %>
@@ -25,3 +29,4 @@
 <h4><%= link_to 'Remove Wine', @wine, method: :delete %></h4>
 
 <% end %>
+
