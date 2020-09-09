@@ -4,11 +4,15 @@
 <h1>New Review</h1>
 <% end %>
 
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
 <%= form_for([@wine,@review]) do |f|%>
 
   <% if !@wine %>
-  <%= f.label :wine %>
-  <%= f.collection_select :wine_id, Wine.all, :id, :name %>
+    <%= f.label :wine %>
+    <%= f.collection_select :wine_id, Wine.all, :id, :name %>
+  <% else %>
+    <%= f.hidden_field :wine_id %>
   <% end %>
   <br>
   <br>
