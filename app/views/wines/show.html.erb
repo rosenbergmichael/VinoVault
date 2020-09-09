@@ -1,0 +1,16 @@
+<h1><%=@wine.name%></h1>
+<h3>Added by <%=@wine.user.username%></h3>
+<br>
+<img src="<%= @wine.img %>" >
+<br>
+<br>
+<div><%= @wine.content%></div>
+<br>
+<h3>Reviews</h3>
+
+<br>
+<br>
+<%= link_to "Add a Review", new_review_path %>
+<% if @wine.user == current_user %>
+<h4><%= link_to "Edit Wine", edit_wine_path(@wine)%></h4>
+<% end %>

@@ -1,1 +1,9 @@
 <h1>Welcome <%= @user.username %></h1>
+
+<%= link_to "Add a Wine", new_wine_path %> 
+<br>
+<br>
+<%= link_to "My Wines", user_wines_path(current_user) %> 
+<br>
+<br>
+<%= link_to "All Wines", wines_path %> 

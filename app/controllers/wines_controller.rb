@@ -23,7 +23,25 @@ class WinesController < ApplicationController
     @wine = Wine.find_by_id(params[:id])
     redirect_to wines_path if !@wine 
   end
-  
+
+  def edit
+    @wine = Wine.find_by_id(params[:id])
+    redirect_to wines_path if !@wine || @wine.user != current_user
+    # @wine.build_category if !@wine.category
+  end
+
+  def update
+    @wine = Wine.find_by(id: params[:id])
+    redirect_to wines_path if !@wine || @wine.user != current_user
+   if @wine.update(wine_params)
+     redirect_to wine_path(@wine)
+   else
+     render :edit
+   end
+ end
+
+
+
   private
 
   def wine_params

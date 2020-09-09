@@ -3,7 +3,12 @@ class ReviewsController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def index
-    @reviews = Review.all
+    if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
+      @reviews = @wine.reviews
+    else 
+      @error = "That wine doesn't exist" if params[:wine_id]
+      @reviews = Review.all
+    end 
   end
 
   def new
@@ -30,7 +35,7 @@ class ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :notes)
+    params.require(:review).permit(:rating, :notes, :wine_id)
   end
 
 
