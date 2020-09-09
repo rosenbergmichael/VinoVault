@@ -7,10 +7,20 @@
 <div><%= @wine.content%></div>
 <br>
 <h3>Reviews</h3>
+<% @wine.reviews.each do |r| %>
+  <li><strong><%= r.user.username %></strong></li>
+  <br>
+  <li>Rating: <%= r.rating %>
+  <br>
+  <li><%= r.notes %>
+  <% end %>
+<br>
+<br>
+<%= link_to "Add a Review", new_wine_review_path(@wine) %>
 
-<br>
-<br>
-<%= link_to "Add a Review", new_review_path %>
+<p><%= link_to 'See All Reviews', wine_reviews_path(@wine) %></p>
+
 <% if @wine.user == current_user %>
 <h4><%= link_to "Edit Wine", edit_wine_path(@wine)%></h4>
+<h4><%= link_to "Remove Wine", user_wines_path(@wine)%></h4>
 <% end %>

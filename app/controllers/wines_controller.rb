@@ -40,7 +40,11 @@ class WinesController < ApplicationController
    end
  end
 
-
+ def destroy
+  @wine = Wine.find_by(id: params[:id])
+  @wine.destroy if @wine.user == current_user
+  redirect_to wines_path
+ end
 
   private
 

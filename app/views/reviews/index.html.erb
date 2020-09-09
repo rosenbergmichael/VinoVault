@@ -1,0 +1,11 @@
+<% if @wine %>
+  <h1>Reviews for <%= @wine.name%></h1>
+<% else %>
+  <h1>All Reviews</h1>
+<% end %>
+
+<ul>
+<% @reviews.each do |r|%>
+  <li><%= r.user.username%> says "<%= r.notes%>" about this wine: <strong><%= link_to r.wine.name, wine_path(r.wine_id) %></strong></li>
+<% end %>
+</ul>

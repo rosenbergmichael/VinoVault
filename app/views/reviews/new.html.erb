@@ -1,0 +1,25 @@
+<% if @wine %>
+<h1>New Review for <%= @wine.name %></h1>
+<% else %>
+<h1>New Review</h1>
+<% end %>
+
+<%= form_for([@wine,@review]) do |f|%>
+
+  <% if !@wine %>
+  <%= f.label :wine %>
+  <%= f.collection_select :wine_id, Wine.all, :id, :name %>
+  <% end %>
+  <br>
+  <br>
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <br>
+  <br>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+  <br>
+  <br>
+  <%= f.submit %>
+
+<% end %>  

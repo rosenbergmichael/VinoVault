@@ -12,7 +12,12 @@ class ReviewsController < ApplicationController
   end
 
   def new
-    @review = Review.new 
+    if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
+      @review = @wine.reviews.build
+    else
+      @error = "That wine doesn't exist" if params[:wine_id]
+      @review = Review.new
+    end
   end
 
   def create
