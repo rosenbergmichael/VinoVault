@@ -6,13 +6,13 @@
 <br>
 <div><%= @wine.content%></div>
 <br>
+<br>
 <h3>Reviews</h3>
+<br>
 <% @wine.reviews.each do |r| %>
-  <li><strong><%= r.user.username %></strong></li>
-  <br>
-  <li>Rating: <%= r.rating %>
-  <br>
-  <li><%= r.notes %>
+  <h4><strong>Review by <%= r.user.username %></strong></h4>
+  <p><strong>Rating:</strong> <%= r.rating %></p>
+  <p><%= r.notes %></p>
   <% end %>
 <br>
 <br>
@@ -22,5 +22,8 @@
 
 <% if @wine.user == current_user %>
 <h4><%= link_to "Edit Wine", edit_wine_path(@wine)%></h4>
-<h4><%= link_to "Remove Wine", user_wines_path(@wine)%></h4>
+<h4><%= link_to 'Remove Wine', @wine, method: :delete %></h4>
+
+
+
 <% end %>
