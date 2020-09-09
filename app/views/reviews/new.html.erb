@@ -1,14 +1,14 @@
-<% if @wine %>
-<h1>New Review for <%= @wine.name %></h1>
+<% if @review.wine %>
+<h1>New Review for <%= @review.wine.name %></h1>
 <% else %>
 <h1>New Review</h1>
 <% end %>
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
-<%= form_for([@wine,@review]) do |f|%>
+<%= form_for([@review.wine,@review]) do |f|%>
 
-  <% if !@wine %>
+  <% if !@review.wine %>
     <%= f.label :wine %>
     <%= f.collection_select :wine_id, Wine.all, :id, :name %>
   <% else %>

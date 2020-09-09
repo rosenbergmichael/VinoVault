@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
   def create
     @review = current_user.reviews.build(review_params)
     if @review.save
-      redirect_to reviews_path
+      redirect_to wine_path(@review.wine)
     else 
       render :new
     end
