@@ -50,7 +50,6 @@ class WinesController < ApplicationController
  end
 
  def destroy
-  # binding.pry
   @wine = Wine.find(params[:id])
   @wine.destroy
   redirect_to wines_path

@@ -1,6 +1,5 @@
 VinoVault
 
--Wines Controller destroy action not working
 
 -Trying to figure out how to allow user to delete the reviews they've wrote
 
