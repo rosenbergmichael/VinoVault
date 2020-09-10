@@ -6,7 +6,7 @@
 
 <ul>
 <% @reviews.each do |r|%>
-  <li><%= r.user.username%> says "<%= r.notes%>" about this wine: <strong><%= link_to r.wine.name, wine_path(r.wine_id) %></strong></li>
+  <li><%= r.user.username%> says "<%= r.notes%>" about: <strong><%= link_to r.wine.name, wine_path(r.wine_id) %></strong> (Rating:<%=r.rating%>)</li>
 <% end %>
 </ul>
 
