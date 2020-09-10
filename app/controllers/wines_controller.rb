@@ -1,6 +1,7 @@
 class WinesController < ApplicationController
 
   before_action :redirect_if_not_logged_in
+  before_action :set_wine, only: [:show, :edit]
 
   def new
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -29,12 +30,10 @@ class WinesController < ApplicationController
   end
 
   def show
-    @wine = Wine.find_by_id(params[:id])
     redirect_to wines_path if !@wine 
   end
 
   def edit
-    @wine = Wine.find_by_id(params[:id])
     redirect_to wines_path if !@wine || @wine.user != current_user
     # @wine.build_category if !@wine.category
   end
@@ -59,6 +58,10 @@ end
 
   def wine_params
     params.require(:wine).permit(:name, :img, :content)
+  end
+
+  def set_wine 
+    @wine = Wine.find_by_id(params[:id])
   end
 
 end
