@@ -6,6 +6,7 @@ class User < ApplicationRecord
  # has_many :categories, through: :wines
 
   validates :username, :email, presence: true 
+  validates_uniqueness_of :username
 
 end
 
