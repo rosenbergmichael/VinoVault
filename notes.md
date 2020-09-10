@@ -2,9 +2,11 @@ VinoVault
 
 -Google oauth seems off, when I click my sign in with google link it keeps automatically signing me in with the original google email I chose, not giving me list of google email options
 
--Able to switch users by just changing user id in url, how do I prevent that?
+
 
 -Trying to figure out how to allow user to delete the reviews they've wrote
+
+
 
     -can I add this feature to the Wine show view, or does it have to be a Review view since the action is in the 
     Reviews controller?
@@ -19,7 +21,10 @@ VinoVault
         redirect_to reviews_path
       end
 
+
     
+
+  -Able to switch users by just changing user id in url, how do I prevent that?  
 
 
 

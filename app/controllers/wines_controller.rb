@@ -35,7 +35,6 @@ class WinesController < ApplicationController
 
   def edit
     redirect_to wines_path if !@wine || @wine.user != current_user
-    # @wine.build_category if !@wine.category
   end
 
   def update
