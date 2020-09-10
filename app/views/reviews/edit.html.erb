@@ -1,0 +1,18 @@
+<h1>Edit Review</h1>
+
+<%= render partial: "layouts/errors", locals: {object: @review} %>
+
+<%= form_for(@review) do |f| %>
+
+  <%= f.label :rating %>
+  <%= f.text_field :rating %>
+  <br>
+  <br>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+
+  <%= f.submit %>
+
+<% end %>  
+
+  

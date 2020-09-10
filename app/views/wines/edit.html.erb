@@ -1,5 +1,7 @@
 <h1>Edit Wine</h1>
 
+<%= render partial: "layouts/errors", locals: {object: @wine} %>
+
 <%= form_for(@wine) do |f| %>
 
   <%= f.label :name %>
