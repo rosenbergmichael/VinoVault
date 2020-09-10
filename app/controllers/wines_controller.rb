@@ -12,10 +12,10 @@ class WinesController < ApplicationController
 
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
-      @wines = @user.wines
+      @wines = @user.wines.alpha 
     else
       @error = "That user doesn't exist" if params[:user_id]
-      @wines = Wine.all
+      @wines = Wine.all.alpha
     end
   end
 

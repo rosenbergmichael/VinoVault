@@ -1,5 +1,6 @@
 VinoVault
 
+-Google oauth seems off, when I click my sign in with google link it keeps automatically signing me in with the original google email I chose, not giving me list of google email options
 
 -Trying to figure out how to allow user to delete the reviews they've wrote
 
