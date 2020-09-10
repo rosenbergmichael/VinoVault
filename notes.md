@@ -1,21 +1,23 @@
 VinoVault
 
+-Wines Controller destroy action not working
+
 -Trying to figure out how to allow user to delete the reviews they've wrote
 
-  -can I add this feature to the Wine show view, or does it have to be a Review view since the action is in the 
-  Reviews controller?
+    -can I add this feature to the Wine show view, or does it have to be a Review view since the action is in the 
+    Reviews controller?
 
-  -Do I need to add a route in config/routes.rb: 
-    delete '/destroy' => 'reviews#destroy'
+    -Do I need to add a route in config/routes.rb: 
+      delete '/destroy' => 'reviews#destroy'
 
-  -Action for ReviewsController?
-    def destroy
-      @review = Review.find(params[:id])
-      @review.destroy
-      redirect_to reviews_path
-    end
+    -Action for ReviewsController?
+      def destroy
+        @review = Review.find(params[:id])
+        @review.destroy
+        redirect_to reviews_path
+      end
 
-  
+    
 
 
 

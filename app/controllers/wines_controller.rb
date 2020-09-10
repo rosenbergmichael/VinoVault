@@ -3,7 +3,20 @@ class WinesController < ApplicationController
   before_action :redirect_if_not_logged_in
 
   def new
-    @wine = Wine.new
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @wine = @user.wines.build
+    else
+      @wine = Wine.new 
+    end
+  end
+
+  def index
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @wines = @user.wines
+    else
+      @error = "That user doesn't exist" if params[:user_id]
+      @wines = Wine.all
+    end
   end
 
   def create
@@ -13,10 +26,6 @@ class WinesController < ApplicationController
     else 
       render :new 
     end
-  end
-
-  def index
-    @wines = Wine.all
   end
 
   def show
@@ -41,6 +50,7 @@ class WinesController < ApplicationController
  end
 
  def destroy
+  # binding.pry
   @wine = Wine.find(params[:id])
   @wine.destroy
   redirect_to wines_path
