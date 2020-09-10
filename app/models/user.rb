@@ -5,5 +5,7 @@ class User < ApplicationRecord
   has_secure_password
  # has_many :categories, through: :wines
 
+  validates :username, :email, presence: true 
+
 end
 

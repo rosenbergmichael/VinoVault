@@ -4,6 +4,9 @@ class Wine < ApplicationRecord
   has_many :reviews
   has_many :users, through: :reviews 
 
-  scope :alpha, -> { order(:name ) }
+  validates :name, :content, presence: true 
+
+  scope :alpha, -> { order(:name) }
+  # scope :most_reviews, -> { joins(:reviews).group('wines.id').order('count(wines.id) desc')  }
 
 end

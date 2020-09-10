@@ -1,4 +1,9 @@
 <h1>All Wines</h1>
 <% @wines.each do |w|%>
-  <li><%= link_to w.name, wine_path(w) %> <img src="<%= w.img %>" > </li>
+  <li><%= link_to w.name, wine_path(w) %> 
+  <br>
+  <img src="<%= w.img %>" > </li>
+  <p>Reviews: <%= w.reviews.size %></p>
+  <br>
+  <br>
 <% end %>
