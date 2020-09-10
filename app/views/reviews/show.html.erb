@@ -1,0 +1,12 @@
+<h2><%= @review.notes%> - <%= @review.user.username%></h2>
+<h3>Rating: <%= @review.rating %>
+<br>
+<br>
+<% if @review.user == current_user %>
+  <%= link_to "Edit Review", edit_review_path(@review)%>
+<% end %>
+<br>
+<br>
+<h4>See Wine Here: <%= link_to @review.wine.name, wine_path(@review.wine_id) %></h4>
+
+
