@@ -1,7 +1,9 @@
 class ReviewsController < ApplicationController
 
   before_action :redirect_if_not_logged_in
-
+  before_action :set_review, only: [:show, :edit, :update]
+  before_action :redirect_if_not_review_writer, only: [:edit, :update]
+ 
   def index
     if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
       @reviews = @wine.reviews
@@ -29,16 +31,14 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def show
-    @review = Review.find_by(id: params[:id])
+  def show  
   end
 
   def edit
-    @review = Review.find_by(id: params[:id])
   end
 
   def update
-    @review = Review.find_by(id: params[:id])
+    
     if @review.update(review_params)
       redirect_to review_path(@review)
     else 
@@ -53,5 +53,16 @@ class ReviewsController < ApplicationController
     params.require(:review).permit(:rating, :notes, :wine_id)
   end
 
+  def set_review
+    @review = Review.find_by(id: params[:id])
+    if !@review
+      flash[:message] = "Review not found"
+      redirect_to reviews_path
+    end
+  end
+
+  def redirect_if_not_review_writer
+    redirect_to reviews_path if @review.user != current_user
+ end
 
 end
