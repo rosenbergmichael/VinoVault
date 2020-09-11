@@ -9,6 +9,7 @@ class WinesController < ApplicationController
     else
       @wine = Wine.new 
     end
+    @wine.build_category
   end
 
   def index
@@ -16,7 +17,7 @@ class WinesController < ApplicationController
       @wines = @user.wines.alpha 
     else
       @error = "That user doesn't exist" if params[:user_id]
-      @wines = Wine.all.alpha
+      @wines = Wine.alpha.includes(:category, :user)
     end
   end
 
@@ -35,6 +36,7 @@ class WinesController < ApplicationController
 
   def edit
     redirect_to wines_path if !@wine || @wine.user != current_user
+    @wine.build_category if !@wine.category
   end
 
   def update
@@ -56,7 +58,7 @@ end
   private
 
   def wine_params
-    params.require(:wine).permit(:name, :img, :content)
+    params.require(:wine).permit(:name, :img, :content, :category_id, category_attributes: [:name])
   end
 
   def set_wine 

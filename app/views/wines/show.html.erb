@@ -4,6 +4,7 @@
 <img src="<%= @wine.img %>" >
 <br>
 <br>
+<h3>Category: <%= @wine.category.try(:name)%></h3>
 <div><%= @wine.content%></div>
 <br>
 <br>
