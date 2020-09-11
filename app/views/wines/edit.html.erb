@@ -2,32 +2,4 @@
 
 <%= render partial: "layouts/errors", locals: {object: @wine} %>
 
-<%= form_for(@wine) do |f| %>
-
-  <%= f.label "Choose a category:" %>
-  <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: true %>
-
-
-   <p>Or create a new category:
-  <%= f.fields_for :category do |c|%>
-    <%= c.text_field :name %>
-  <% end %>
-  </p>
-  <br>
-
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br>
-  <br>
-  <%= f.label :img %>
-  <%= f.text_field :img %>
-  <br>
-  <br>
-  <%= f.label :content %>
-  <%= f.text_area :content %>
-  <br>
-  <br>
-  <%= f.submit %>
-
-<% end %>
+<%= render partial: "wines", locals: {wines: @wines} %>
