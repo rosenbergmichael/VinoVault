@@ -1,9 +1,15 @@
-<h1>All Wines</h1>
+<% if @user %>
+  <h1>My Wines</h1>
+<% else %>
+  <h1>All Wines</h1>
+<% end %>
+
+
 <% @wines.each do |w|%>
   <li><%= link_to w.name, wine_path(w) %> 
   <br>
   <img src="<%= w.img %>" > </li>
-  <p>Reviews: <%= w.reviews.size %></p>
   <br>
   <br>
 <% end %>
+

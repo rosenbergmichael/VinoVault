@@ -1,7 +1,8 @@
 <h1>Edit Review</h1>
-
+<h3>for: <%= @review.wine.name %></h3>
 <%= render partial: "layouts/errors", locals: {object: @review} %>
-
+<br>
+<br>
 <%= form_for(@review) do |f| %>
 
   <%= f.label :rating %>

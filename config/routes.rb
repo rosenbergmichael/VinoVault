@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "sessions#home"
+  root "users#show"
 
   get '/signup' => 'users#new'
   post '/signup' => 'users#create'
@@ -13,10 +13,10 @@ Rails.application.routes.draw do
 
 
   resources :wines do 
-    resources :reviews
+    resources :reviews, shallow: true
   end
   resources :reviews
-  resources :users do 
+  resources :users, except: [:show] do 
     resources :wines, shallow: true 
   end
   

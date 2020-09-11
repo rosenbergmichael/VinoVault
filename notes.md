@@ -21,9 +21,6 @@ VinoVault
         redirect_to reviews_path
       end
 
-
-    
-
   -Able to switch users by just changing user id in url, how do I prevent that?  
 
 
@@ -32,15 +29,28 @@ VinoVault
 
 
 
+MANY to MANY
+
+-user.reviewd_wines to see wines that user has reviewed (Add My Reviewed Wines tab ?)
+
+-wine can have many categories, category has many wines
+
+
+-wine.users to see who's reviewed it  ?
 
 
 
 
 
+line 1 
+<% if @review.wine %>
 
+lines 3 and 4
+<% else %>
+<h1>New Review</h1>
 
-
-
+line 5
+<% end %>
 
 
 

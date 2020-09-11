@@ -4,14 +4,26 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update]
   before_action :redirect_if_not_review_writer, only: [:edit, :update]
  
+
   def index
-    if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
-      @reviews = @wine.reviews
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+      @reviews = @user.reviews
     else 
-      @error = "That wine doesn't exist" if params[:wine_id]
+      @error = "No Reviews" if params[:user_id]
       @reviews = Review.all
     end 
   end
+
+  # Original Reviews Index Action 
+  # def index
+  #   if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
+  #     @reviews = @user.wines.reviews
+  #   else 
+  #     @error = "No Reviews" if params[:wine_id]
+  #     @reviews = Review.all
+  #   end 
+  # end
+
 
   def new
     if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])

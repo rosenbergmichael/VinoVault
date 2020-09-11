@@ -16,7 +16,7 @@
   <p><strong>Rating:</strong> <%= r.rating %></p>
   <p>"<%= r.notes %>"</p>
   <% if r.user == current_user %>
-  <%= link_to "Edit Review", edit_wine_review_path(@wine,r)%> | <%= link_to "Delete Review", r, method: :delete%>
+  <%= link_to "Edit Review", edit_review_path(r)%> | <%= link_to "Delete Review", r, method: :delete%>
   <% end %>
   <% end %>
 

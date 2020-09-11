@@ -1,13 +1,15 @@
-<% if @wine %>
-  <h1>Reviews for <%= @wine.name%></h1>
-<% else %>
-  <h1>All Reviews</h1>
-<% end %>
+<h1>My Reviewed Wines</h1>
 
 <ul>
-<% @reviews.each do |r|%>
-  <li><%= r.user.username%> says "<%= r.notes%>" about: <strong><%= link_to r.wine.name, wine_path(r.wine_id) %></strong> (Rating:<%=r.rating%>)</li>
-   on <%= r.updated_at.strftime("%m/%d/%Y") %>  
+<% if current_user %>
+  <% current_user.reviews.each do |r|%>
+    <li><strong><%= link_to r.wine.name, wine_path(r.wine_id) %></strong>(Rating:<%=r.rating%>) "<%= r.notes%>"</li>
+     (<%= r.updated_at.strftime("%m/%d/%Y") %>)
+     <br>
+     <%= link_to "Edit Review", edit_review_path(r)%> | <%= link_to "Delete Review", r, method: :delete%>
+     <br>
+     <br>
+  <% end %>
 <% end %>
 </ul>
 

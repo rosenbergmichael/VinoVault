@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
       session[:user_id] = user.id 
-      redirect_to user_path(user)
+      redirect_to root_path
     else
       flash[:message] = "Invalid entry, please try again"
       redirect_to "/login"
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     end 
     if @user.save
       session[:user_id] = @user.id 
-      redirect_to user_path(@user)
+      redirect_to root_path
     else
       redirect_to '/'
     end
