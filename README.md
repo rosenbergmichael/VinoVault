@@ -1,24 +1,20 @@
-# README
+# VinoVault
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to VinoVault- an app designed...
 
-Things you may want to cover:
 
-* Ruby version
+## Install Instructions
 
-* System dependencies
+To use this app- just clone, run bundle install, run rake db:migrate, run 'rails s', and then in a browser go to http://localhost:3000/ to begin.
 
-* Configuration
 
-* Database creation
+## Contributing
 
-* Database initialization
+Bug reports and pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## License
 
-* Deployment instructions
+[MIT](https://opensource.org/licenses/MIT)
 
-* ...
+

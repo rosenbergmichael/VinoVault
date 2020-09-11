@@ -3,5 +3,6 @@
 <ol>
     <% @category.wines.each do  |wine| %>
       <li><%= link_to wine.name, wine_path(wine)  %></li>
+      <br>
     <% end  %>
 </ol>
