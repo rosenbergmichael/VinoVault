@@ -6,7 +6,7 @@
 
 
 <% @wines.each do |w|%>
-  <li><%= link_to w.name, wine_path(w) %> 
+  <li><strong><%= link_to w.name, wine_path(w) %></strong>
   <br>
   <img src="<%= w.img %>" > </li>
   <br>
