@@ -14,17 +14,6 @@ class ReviewsController < ApplicationController
     end 
   end
 
-  # Original Reviews Index Action 
-  # def index
-  #   if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
-  #     @reviews = @user.wines.reviews
-  #   else 
-  #     @error = "No Reviews" if params[:wine_id]
-  #     @reviews = Review.all
-  #   end 
-  # end
-
-
   def new
     if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
       @review = @wine.reviews.build

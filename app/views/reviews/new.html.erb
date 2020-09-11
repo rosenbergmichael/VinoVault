@@ -1,8 +1,4 @@
-<% if @review.wine %>
 <h1>New Review for <%= @review.wine.name %></h1>
-<% else %>
-<h1>New Review</h1>
-<% end %>
 
 <%= render partial: "layouts/errors", locals: {object: @review} %>
 
