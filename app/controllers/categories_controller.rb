@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
   
   def index
-    @categories = Category.all.includes(:wines)
+    @categories = Category.all.includes(:wines).alpha
   end
 
   def show

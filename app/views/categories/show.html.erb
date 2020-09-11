@@ -1,7 +1,7 @@
 <h1><%= @category.name %> - <%= pluralize(@category.wines.count, "wine") %></h1>
 
 <ol>
-    <% @category.wines.each do  |wine| %>
+    <% @category.wines.alpha.each do  |wine| %>
       <li><%= link_to wine.name, wine_path(wine)  %></li>
       <br>
     <% end  %>

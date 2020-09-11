@@ -18,16 +18,13 @@
   <h3><strong>Review by <%= r.user.username %></strong> (<%= r.updated_at.strftime("%m/%d/%Y") %>)</h3> 
   <p><strong>Rating:</strong> <%= r.rating %></p>
   <p>"<%= r.notes %>"</p>
-  <% if r.user == current_user %>
-  <%= link_to "Edit Review", edit_review_path(r)%> | <%= link_to "Delete Review", r, method: :delete%>
-  <% end %>
-  <% end %>
-
+ <% if r.user == current_user %>
+    <%= link_to "Edit Review", edit_review_path(r)%> | <%= link_to "Delete Review", r, method: :delete%>
+ <% end %>
+<% end %>
 <br>
 <br>
 <br>
-
-
 <% if @wine.user == current_user %>
 <h4><%= link_to "Edit Wine", edit_wine_path(@wine)%></h4>
 <h4><%= link_to 'Remove Wine', @wine, method: :delete %></h4>
