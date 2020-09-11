@@ -4,7 +4,6 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update]
   before_action :redirect_if_not_review_writer, only: [:edit, :update]
  
-
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @reviews = @user.reviews
@@ -68,6 +67,6 @@ class ReviewsController < ApplicationController
 
   def redirect_if_not_review_writer
     redirect_to reviews_path if @review.user != current_user
- end
+  end
 
 end
