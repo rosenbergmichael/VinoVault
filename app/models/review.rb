@@ -4,5 +4,6 @@ class Review < ApplicationRecord
 
   validates :rating, numericality: true
   validates :notes, presence: true 
+
   
 end
