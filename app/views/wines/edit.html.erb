@@ -1,5 +1,7 @@
-<h1>Edit Wine</h1>
+<h1>Edit Wine</h1> 
+<p><strong>(<%= @wine.name%>)</strong></p>
 
+<br>
 <%= render partial: "layouts/errors", locals: {object: @wine} %>
 
 <%= render partial: "wines", locals: {wines: @wines} %>
