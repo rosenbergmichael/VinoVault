@@ -4,6 +4,10 @@
 
 <%= form_for(@user, url:'/signup') do |f |  %>
 
+<%= f.label :age %>
+<%= f.text_field :age, required:true %>
+<br>
+<br>
 <%= f.label :username %>
 <%= f.text_field :username, required:true %>
 <br>

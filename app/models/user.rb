@@ -8,6 +8,7 @@ class User < ApplicationRecord
  
   validates :username, :email, presence: true 
   validates_uniqueness_of :username
+  validates :age, numericality: { greater_than_or_equal_to: 21 }
 
 end
 
