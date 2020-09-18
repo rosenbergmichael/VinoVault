@@ -7,18 +7,12 @@ class ReviewsController < ApplicationController
   def index
     if params[:user_id] && @user = User.find_by_id(params[:user_id])
       @reviews = @user.reviews
-    else 
-      @error = "No Reviews" if params[:user_id]
-      @reviews = Review.all
     end 
   end
 
   def new
     if params[:wine_id] && @wine = Wine.find_by_id(params[:wine_id])
       @review = @wine.reviews.build
-    else
-      @error = "That wine doesn't exist" if params[:wine_id]
-      @review = Review.new
     end
   end
 

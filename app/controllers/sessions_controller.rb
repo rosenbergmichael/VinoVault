@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id 
       redirect_to root_path
     else
-      flash[:message] = "Invalid entry, please try again"
+      flash[:message] = "Invalid username and/or password, please try again"
       redirect_to "/login"
     end 
   end
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     end 
     if @user.save
       session[:user_id] = @user.id 
-      redirect_to root_path
+      redirect_to root_path 
     else
       redirect_to '/'
     end

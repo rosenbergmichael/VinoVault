@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   resources :wines do 
     resources :reviews, shallow: true
   end
+
   resources :reviews
+
   resources :users, except: [:show] do 
     resources :wines, shallow: true 
   end
