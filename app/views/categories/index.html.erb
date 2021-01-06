@@ -3,7 +3,7 @@
   <% @categories.each do |category| %>
     <br>
     <li>
-    <strong><%= link_to category.name, category_path(category) %></strong> (<%= pluralize(category.wines.count, "wine") %>)
+    <h2><strong><%= link_to category.name, category_path(category) %></strong> (<%= pluralize(category.wines.count, "wine") %>)</h2>
     </li>
     
   <% end %>
